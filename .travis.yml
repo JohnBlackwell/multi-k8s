@@ -13,7 +13,7 @@ after_success:
   - docker build -t jblackwell/multi-client ./client
   - docker build -t jblackwell/multi-nginx  ./nginx 
   - docker build -t jblackwell/multi-server ./server 
-  - docker build -t jblackwell/multi-workder ./worker 
+  - docker build -t jblackwell/multi-worker ./worker 
 # log into  docker cli 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
 # take those images and push to docker hub
