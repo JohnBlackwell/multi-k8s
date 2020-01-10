@@ -10,14 +10,14 @@ script:
   - docker run -e CI=true jblackwell/react-test npm test 
 
 after_success: 
-  - docker build -t jblackwell/multi-client ./client
-  - docker build -t jblackwell/multi-nginx  ./nginx 
-  - docker build -t jblackwell/multi-server ./server 
-  - docker build -t jblackwell/multi-worker ./worker 
+  - docker build -t jblackwell1/multi-client ./client
+  - docker build -t jblackwell1/multi-nginx  ./nginx 
+  - docker build -t jblackwell1/multi-server ./server 
+  - docker build -t jblackwell1/multi-worker ./worker 
 # log into  docker cli 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
 # take those images and push to docker hub
-  - docker push jblackwell1/multi-client
-  - docker push jblackwell1/multi-nginx
-  - docker push jblackwell1/multi-server
-  - docker push jblackwell1/multi-worker
+  - docker push jblackwell1/multi-client 
+  - docker push jblackwell1/multi-nginx 
+  - docker push jblackwell1/multi-server 
+  - docker push jblackwell1/multi-worker 
