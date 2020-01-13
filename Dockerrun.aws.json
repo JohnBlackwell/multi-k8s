@@ -1,0 +1,37 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+         {
+           "name": "client",
+           "image": "jblackwell1/multi-client",
+           "hostname": "client",
+           "essential": false
+         },
+         {
+            "name": "server",
+            "image": "jblackwell1/multi-server",
+            "hostname": "api",
+            "essential": false 
+         },
+         {
+            "name": "worker",
+            "image": "jblackwell1/multi-worker",
+            "hostname": "worker",
+            "essential": false 
+
+         },
+         {
+            "name": "nginx",
+            "image": "jblackwell1/multi-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client", "server"]
+         }
+    ]
+}
